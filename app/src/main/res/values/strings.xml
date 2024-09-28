@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">CFK</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="convertir">Convertir</string>
+    <string name="resultado">Resultado:</string>
+
+</resources>
