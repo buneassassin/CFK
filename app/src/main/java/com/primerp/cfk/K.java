@@ -2,19 +2,29 @@ package com.primerp.cfk;
 
 public class K extends Temperatura {
 
-    public K(double cantidad) {
-        super(cantidad, "Kelvin");
+    // Constructor con valor de temperatura en Kelvin
+    public K(Double valor) {
+        this.setCantidad(valor);
+        this.setValorUnidad("K");
     }
 
-    public double Parse(C c) {
-        return c.getCantidad() + 273.15; // C to K
+    // Constructor vacío
+    public K() {}
+
+    // Método Parse sobrecargado para convertir de Celsius a Kelvin
+    public K Parse(C c) {
+        Double valor = c.getCantidad() + 273.15;
+        return new K(valor);
     }
 
-    public double Parse(F f) {
-        return (f.getCantidad() - 32) * 5/9 + 273.15; // F to K
+    // Método Parse sobrecargado para convertir de Fahrenheit a Kelvin
+    public K Parse(F f) {
+        Double valor = (f.getCantidad() - 32) * 5 / 9 + 273.15;
+        return new K(valor);
     }
 
-    public double Parse(K k) {
-        return k.getCantidad(); // K to K (no conversion needed)
+    // Método Parse sobrecargado para convertir entre Kelvin (no hace nada en este caso)
+    public K Parse(K k) {
+        return k; // K to K (sin conversión)
     }
 }

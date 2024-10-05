@@ -7,55 +7,70 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <!-- Lottie animation -->
 
-    <!-- Campo de entrada para la cantidad -->
 
     <!-- Selector de unidad -->
-    <EditText
-        android:id="@+id/editTextCantidad"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-    android:layout_marginEnd="16dp"
-    android:hint="@string/cantidad"
-    android:inputType="numberDecimal"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
 
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="252dp"
+        android:layout_height="234dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/anim1"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="3dp" />
 
     <Button
         android:id="@+id/btnConvertir"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="20dp"
         android:text="@string/convertir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerUnidad" />
 
-    <TextView
-        android:id="@+id/textViewResultado"
+    <EditText
+        android:id="@+id/editTextCantidad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/resultado"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="244dp"
+        android:layout_marginEnd="16dp"
+        android:hint="@string/cantidad"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnConvertir" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
         android:id="@+id/spinnerUnidad"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
         android:entries="@array/unidades_array"
-        app:layout_constraintTop_toBottomOf="@+id/editTextCantidad"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextCantidad" />
+
+    <TextView
+        android:id="@+id/textViewResultado"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/resultado"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConvertir" />
 
 
     <!-- Botón para convertir -->

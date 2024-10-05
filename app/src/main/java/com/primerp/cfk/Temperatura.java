@@ -4,20 +4,28 @@ public class Temperatura {
     protected double cantidad;
     protected String valorUnidad;
 
+    // Constructor vacío
+    public Temperatura() {}
+
+    // Constructor con parámetros
     public Temperatura(double cantidad, String valorUnidad) {
         this.cantidad = cantidad;
         this.valorUnidad = valorUnidad;
     }
 
-    // Método get para obtener la cantidad
     public double getCantidad() {
         return cantidad;
     }
 
-    // Método get para obtener el valor de la unidad
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
+    }
+
     public String getValorUnidad() {
         return valorUnidad;
     }
+
+    public void setValorUnidad(String valorUnidad) {
+        this.valorUnidad = valorUnidad;
+    }
 }
-
-

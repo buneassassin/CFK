@@ -1,23 +1,20 @@
 package com.primerp.cfk;
 
 import android.os.Bundle;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
-import androidx.activity.EdgeToEdge;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
     private EditText editTextCantidad;
     private Spinner spinnerUnidad;
     private Button btnConvertir;
     private TextView textViewResultado;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,22 +64,28 @@ public class MainActivity extends AppCompatActivity {
 
     // Función para mostrar los resultados de la conversión
     private void mostrarResultado(Temperatura temperatura) {
-        String resultado = "";
+        StringBuilder resultado = new StringBuilder();
 
         if (temperatura instanceof C) {
             C celsius = (C) temperatura;
-            resultado += "Fahrenheit: " + celsius.Parse(new F(0)) + "\n";
-            resultado += "Kelvin: " + celsius.Parse(new K(0)) + "\n";
+            C fahrenheit = celsius.Parse(new F(celsius.getCantidad())); // Conversión a Fahrenheit
+            C kelvin = celsius.Parse(new K(celsius.getCantidad()));     // Conversión a Kelvin
+            resultado.append("Fahrenheit: ").append(fahrenheit.getCantidad()).append("\n");
+            resultado.append("Kelvin: ").append(kelvin.getCantidad()).append("\n");
         } else if (temperatura instanceof F) {
             F fahrenheit = (F) temperatura;
-            resultado += "Celsius: " + fahrenheit.Parse(new C(0)) + "\n";
-            resultado += "Kelvin: " + fahrenheit.Parse(new K(0)) + "\n";
+            F celsius = fahrenheit.Parse(new C(fahrenheit.getCantidad())); // Conversión a Celsius
+            F kelvin = fahrenheit.Parse(new K(fahrenheit.getCantidad()));  // Conversión a Kelvin
+            resultado.append("Celsius: ").append(celsius.getCantidad()).append("\n");
+            resultado.append("Kelvin: ").append(kelvin.getCantidad()).append("\n");
         } else if (temperatura instanceof K) {
             K kelvin = (K) temperatura;
-            resultado += "Celsius: " + kelvin.Parse(new C(0)) + "\n";
-            resultado += "Fahrenheit: " + kelvin.Parse(new F(0)) + "\n";
+            K celsius = kelvin.Parse(new C(kelvin.getCantidad()));     // Conversión a Celsius
+            K fahrenheit = kelvin.Parse(new F(kelvin.getCantidad()));  // Conversión a Fahrenheit
+            resultado.append("Celsius: ").append(celsius.getCantidad()).append("\n");
+            resultado.append("Fahrenheit: ").append(fahrenheit.getCantidad()).append("\n");
         }
 
-        textViewResultado.setText(resultado);
+        textViewResultado.setText(resultado.toString());
     }
 }
